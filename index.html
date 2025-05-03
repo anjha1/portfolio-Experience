@@ -145,12 +145,82 @@
         .cta-section a:hover {
             background-color: #29a8cf;
         }
+        /* Mobile-first approach */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2.5rem;
+            }
+
+            nav ul {
+                flex-direction: column;
+                gap: 10px;
+                display: none;
+            }
+
+            nav ul.active {
+                display: flex;
+            }
+
+            nav ul li {
+                text-align: center;
+                padding: 10px;
+                background-color: #333;
+                border-radius: 5px;
+            }
+
+            .hamburger {
+                display: block;
+                position: absolute;
+                top: 20px;
+                right: 20px;
+                cursor: pointer;
+                color: white;
+                font-size: 1.5rem;
+            }
+
+            .about-section {
+                margin: 20px auto;
+                padding: 20px;
+                width: 90%;
+            }
+
+            footer {
+                position: relative;
+                margin-top: 40px;
+            }
+
+            .contact-button {
+                display: block;
+                margin: 10px auto;
+                text-align: center;
+                width: 80%;
+            }
+
+            img[src="a1.jpg"] {
+                width: 120px;
+                height: 120px;
+            }
+
+            /* Adjust hitwebcounter image */
+            .hitwebcounter img {
+                width: 100%;
+                height: auto;
+            }
+        }
+
+        /* Desktop styles */
+        @media (min-width: 769px) {
+            .hamburger {
+                display: none;
+            }
+        }
 
         
     </style>
 </head>
 <body>
     <header>
+        <h1>My Experience</h1>
         <nav>
             <ul>
                 <li><a href="https://anjha1.github.io/portfolio-Home/">Home</a></li>
@@ -162,10 +232,10 @@
     </header>
 
     <section id="experience">
-        <h1>My Experience</h1>
-        <h4 class="scrolling-text" style="text-align: center; color: rgb(106, 0, 0);">
+        <!-- <h1>My Experience</h1> -->
+        <!-- <h4 class="scrolling-text" style="text-align: center; color: rgb(106, 0, 0);">
             Please note: This highlights my experience in Machine Learning, AI, Deep Learning, and Full-Stack Development across various internships and projects.
-        </h4>
+        </h4> -->
         <div class="experience-list">
 
             <div class="experience-item">
@@ -371,6 +441,21 @@
               document.head.appendChild(t);
             });
           </script>
+          <script>
+            function toggleMenu() {
+                const navUl = document.querySelector('nav ul');
+                navUl.classList.toggle('active');
+            }
+    
+            // Close menu when clicking outside
+            document.addEventListener('click', function(event) {
+                const navUl = document.querySelector('nav ul');
+                const hamburger = document.querySelector('.hamburger');
+                if (!event.target.closest('nav') && !event.target.closest('.hamburger')) {
+                    navUl.classList.remove('active');
+                }
+            });
+        </script>
     </section>
 
     <footer>
